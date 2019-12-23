@@ -1,7 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import csv
 
-VALUES_ARRAY = np.array([1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6])
+_VALUE_CSV_COL_POSITION_ = 1
+_FILE_NAME_ = 'data.csv'
+
+VALUES_ARRAY = []
+
+with open(_FILE_NAME_, 'r') as csv_file:
+    data = csv.reader(csv_file)
+    for row in data:
+        VALUES_ARRAY.append(row[_VALUE_CSV_COL_POSITION_])
+
 BINS = [0, 1, 2, 3, 4, 5, 6, 7]  # bins are segments for grouping the chart
 HISTOGRAM_TITLE = 'Histogram'
 X_AXIS_LABEL = 'Wartość'
